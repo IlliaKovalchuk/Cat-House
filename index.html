@@ -8,13 +8,66 @@
 <body>
   <header class="flex bg-custom-radial-gradient justify-between border-b-4 border-b_color">
     <div class="flex gap-3 items-center">
-        <img class="size-16" src="cat.png" alt="cat">
+        <img class="size-16" src="/img/cat.png" alt="cat">
         <p class="text-xl text-t_color font-extrabold">Cat House</p>
     </div>
-    <img class="size-16" src="Burger menu.png" alt="Burger menu">
+    <img class="size-16" src="/img/Burger menu.png" alt="Burger menu">
   </header>
-  <section class="bg-custom-gradient-bottom-right h-screen">
+  <section class="bg-custom-gradient-bottom-right min-h-screen relative">
+    <div class="flex justify-start gap-24 p-20 flex-wrap">
+      <!-- Карточка з модальним вікном -->
+      <div id="card-container" class="flex flex-wrap gap-16">
+        <!-- Початкова картка -->
+        <div class="flex w-48 p-4 h-auto rounded-lg border-4 border-b_color cursor-pointer" onclick="openModal()">
+          <div>
+            <div class="flex gap-4">
+              <img class="size-20" src="/img/cat.png" alt="cat">
+              <p class="pt-8 w-auto text-t_color">Tom</p>
+            </div>
+            <div class="flex pt-2 gap-14 justify-around text-t_color">
+              <p>Time</p>
+              <p>Location</p>
+            </div>
+            <div class="flex justify-between items-center">
+              <ul class="text-t_color">
+                <li>- 8:15</li>
+                <li>- 8:15</li>
+                <li>- 8:15</li>
+                <li>- 8:15</li>
+              </ul>
+              <div>
+                <img class="size-16" src="/img/House.png" alt="House">
+                <img class="size-16" src="/img/tree.png" alt="tree">
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Кнопка для створення нових карток -->
+        <div class="flex w-48 p-4 h-auto rounded-lg border-4 border-b_color cursor-pointer" onclick="createCard()">
+          <div class="flex justify-center items-center w-full min-h-60 pb-4">
+            <p class="text-9xl text-t_color">+</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="absolute bottom-2 left-2 items-center gap-2 flex flex-row justify-start">
+        <img class="size-32" src="/img/lock.png" alt="lock">
+        <p class="flex justify-center">Open</p>
+      </div>
+
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden transition-opacity duration-300 ease-out">
+      <div id="modal-content" class="bg-m_colors border-b_color border-4 p-8 rounded-lg w-1/3 transform scale-75 opacity-0 transition-all duration-300 ease-out">
+        <div class="flex justify-between items-start pb-2">
+          <h2 class="text-2xl text-t_color font-bold mb-4">Деталі картки</h2>
+          <button onclick="closeModal()" class="bg-red-500 px-4 py-2 rounded-full"></button>
+        </div>
+        <p class="mb-4 text-t_color">Тут знаходиться більше інформації про елемент.</p>
+      </div>
+    </div>
+  
   </section>
+  <script src="./src/modal.js"></script>
 </body>
 </html>
+
